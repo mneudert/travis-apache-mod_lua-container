@@ -15,4 +15,5 @@ env:
     - VER_APRUTIL=1.5.4
     - VER_HTTPD=2.4.18
 
-script: ./compile_and_test.sh
+install: true
+script:  ./compile_and_test.sh
