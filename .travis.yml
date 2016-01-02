@@ -5,6 +5,7 @@ sudo:     false
 addons:
   apt:
     packages:
+      - libluajit-5.1-2
       - libluajit-5.1-dev
 
 env:
