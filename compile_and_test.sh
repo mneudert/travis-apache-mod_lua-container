@@ -68,4 +68,10 @@ export PATH="$PATH:${moduledir}/vendor/httpd-${VER_HTTPD}"
 
 echo "==> Testing!"
 
-ls -la "${moduledir}/vendor/httpd-${VER_HTTPD}/httpd"
+cd "vendor/httpd-${VER_HTTPD}" \
+  && mkdir "logs" \
+  && ./httpd -f "${moduledir}/httpd.conf"
+
+sleep 3
+
+curl -sI http://localhost:8080 | grep "Apache"
