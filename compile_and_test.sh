@@ -60,6 +60,8 @@ if [ 0 -eq ${nocompile} ]; then
       --enable-luajit \
       --with-included-apr
   make || exit $?
+
+  mkdir "logs"
 fi
 
 
@@ -68,9 +70,7 @@ export PATH="$PATH:${moduledir}/vendor/httpd-${VER_HTTPD}"
 
 echo "==> Testing!"
 
-cd "vendor/httpd-${VER_HTTPD}" \
-  && mkdir "logs" \
-  && ./httpd -f "${moduledir}/httpd.conf"
+httpd -f "${moduledir}/httpd.conf"
 
 sleep 3
 
